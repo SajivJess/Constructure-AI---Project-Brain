@@ -1,0 +1,49 @@
+# Python
+*.pyc
+__pycache__/
+venv/
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Environment
+.env
+.env.local
+.env.production
+
+# Node
+node_modules/
+.next/
+out/
+.vercel
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Project specific
+uploads/
+chroma_db/
+persistent_data/
+*.pdf
+*.faiss
+*.pkl
+
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# IDEs
+.vscode/
+.idea/
+*.sublime-*
+
+# Logs
+*.log
+logs/
