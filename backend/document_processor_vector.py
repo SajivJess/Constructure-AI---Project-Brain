@@ -251,7 +251,11 @@ class DocumentProcessor:
             dist = float(dist)
             if idx < len(self.chunks):
                 vector_score = float(1 / (1 + dist))
-                bm25_score = float(bm25_scores[idx]) if len(bm25_scores) > 0 and idx < len(bm25_scores) else 0.0
+                # Get BM25 score with robust type handling
+                if len(bm25_scores) > 0 and idx < len(bm25_scores):
+                    bm25_score = float(bm25_scores[idx])
+                else:
+                    bm25_score = 0.0
                 
                 # Weighted combination: 60% vector, 40% BM25
                 combined_score = 0.6 * vector_score + 0.4 * (bm25_score / 10.0 if bm25_score > 0.0 else 0.0)
