@@ -238,9 +238,10 @@ class DocumentProcessor:
         
         # BM25 keyword search
         bm25_scores = []
-        if self.bm25:
+        if self.bm25 is not None:
             tokenized_query = self._tokenize(query)
-            bm25_scores = self.bm25.get_scores(tokenized_query)
+            # Convert numpy array to list to avoid ambiguous boolean checks
+            bm25_scores = list(self.bm25.get_scores(tokenized_query))
         
         # Combine scores (hybrid approach)
         combined_results = {}
